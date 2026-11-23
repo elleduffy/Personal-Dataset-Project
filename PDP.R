@@ -1,3 +1,5 @@
+# Loading Data and Packages
+
 library("tidyverse")
 library("ggplot2")
 raw_data <- read_csv("occurencedata.csv")
@@ -38,7 +40,7 @@ clean_data <- clean_data %>%
   filter(lat >= 40 & lat <= 50) %>%
   filter(lon >= 8 & lon <= 10)
 
-# got rid of two rows where lat was 4.52
+# note: got rid of two rows where lat was 4.52
 
 # Formatting Species Names
 
@@ -62,7 +64,7 @@ colSums(is.na(clean_data))
 
 write_csv(clean_data, "occurencedata_clean.csv")
 
-# Creating a Graph
+# Creating Monthly Occurences Graph
 
 clean_data$month_name <- factor(
   clean_data$month_name,
